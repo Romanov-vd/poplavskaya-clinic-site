@@ -1,0 +1,44 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}Контакты — {{ clinic_name }}{% endblock %}
+{% block content %}
+<section class="panel">
+    <div class="eyebrow">Контакты</div>
+    <h2>Мы рядом, когда нужна помощь</h2>
+    <p class="lead">Запишитесь на приём или приезжайте в клинику в удобное время.</p>
+
+    <div class="contact-grid">
+        <div class="contact-card"><span>Адрес</span><strong>{{ address }}</strong></div>
+        <div class="contact-card"><span>Телефон</span><strong>{{ phone }}</strong></div>
+        <div class="contact-card"><span>Email</span><strong>{{ email }}</strong></div>
+    </div>
+
+    <img class="map-image" src="{% static 'clinic/images/map_real.png' %}" alt="Маршрут до медицинского центра Новая Линия">
+    <p class="lead" style="margin-top:16px;">Как добраться: от остановки на ул. Красноармейской — примерно 4–5 минут пешком до медицинского центра.</p>
+</section>
+
+<section class="panel">
+    <div class="section-head">
+        <div>
+            <div class="eyebrow">График</div>
+            <h2>Режим работы</h2>
+        </div>
+    </div>
+    <table>
+        <thead>
+            <tr>
+                <th>День недели</th>
+                <th>Время работы</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for item in schedule %}
+                <tr>
+                    <td>{{ item.day }}</td>
+                    <td>{{ item.time }}</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</section>
+{% endblock %}

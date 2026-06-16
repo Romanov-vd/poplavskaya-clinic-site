@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+{% block title %}Услуги — {{ clinic_name }}{% endblock %}
+{% block content %}
+<section class="panel">
+    <div class="section-head">
+        <div>
+            <div class="eyebrow">Прайс-лист</div>
+            <h2>Услуги и цены</h2>
+        </div>
+        <p class="lead">Базовые направления клиники. Точную стоимость администратор уточнит при записи.</p>
+    </div>
+    <table>
+        <thead>
+            <tr>
+                <th>Услуга</th>
+                <th>Цена</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for service in services %}
+                <tr>
+                    <td>{{ service.name }}</td>
+                    <td>{{ service.price }}</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</section>
+{% endblock %}

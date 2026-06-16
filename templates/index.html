@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}Главная — {{ clinic_name }}{% endblock %}
+{% block content %}
+<section class="hero">
+    <div class="hero-copy">
+        <div class="eyebrow">Медицина нового уровня</div>
+        <h1>Здоровье, к которому хочется возвращаться</h1>
+        <p class="lead">
+            {{ clinic_name }} объединяет внимательных врачей, современную диагностику и оборудование.
+        </p>
+        <div class="cta-row">
+            <a class="button" href="{% url 'services' %}">Посмотреть услуги</a>
+            <a class="button secondary" href="{% url 'contacts' %}">Связаться с нами</a>
+        </div>
+    </div>
+    <div class="hero-media">
+        <img class="hero-image" src="{% static 'clinic/images/medcenter_real.jpg' %}" alt="Интерьер медицинского центра Новая Линия">
+    </div>
+</section>
+
+<section class="panel">
+    <div class="section-head">
+        <div>
+            <div class="eyebrow">Почему выбирают нас</div>
+            <h2>Комфортный подход к лечению</h2>
+        </div>
+        <p class="lead">Мы делаем медицинскую помощь понятной, аккуратной и персональной.</p>
+    </div>
+    <div class="grid">
+        {% for feature in features %}
+            <div class="feature-card">{{ feature }}</div>
+        {% endfor %}
+    </div>
+</section>
+{% endblock %}
